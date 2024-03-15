@@ -5,10 +5,7 @@
             <Filters @clear="onFiltersClear">
                 <FiltersRow>
                     <FiltersCol>
-                        <TextInput name="first_name" :label="trans('users.labels.first_name')" v-model="mainQuery.filters.first_name.value"></TextInput>
-                    </FiltersCol>
-                    <FiltersCol>
-                        <TextInput name="last_name" :label="trans('users.labels.last_name')" v-model="mainQuery.filters.last_name.value"></TextInput>
+                        <TextInput name="username" :label="trans('users.labels.username')" v-model="mainQuery.filters.username.value"></TextInput>
                     </FiltersCol>
                     <FiltersCol>
                         <TextInput name="email" type="email" :label="trans('users.labels.email')" v-model="mainQuery.filters.email.value"></TextInput>
@@ -91,11 +88,7 @@ export default defineComponent({
             search: '',
             sort: '',
             filters: {
-                first_name: {
-                    value: '',
-                    comparison: '='
-                },
-                last_name: {
+                username: {
                     value: '',
                     comparison: '='
                 },
@@ -140,15 +133,13 @@ export default defineComponent({
         const table = reactive({
             headers: {
                 id: trans('users.labels.id_pound'),
-                first_name: trans('users.labels.first_name'),
-                last_name: trans('users.labels.last_name'),
+                username: trans('users.labels.username'),
                 email: trans('users.labels.email'),
                 status: trans('users.labels.status'),
                 role: trans('users.labels.role'),
             },
             sorting: {
-                first_name: true,
-                last_name: true
+                username: true,
             },
             pagination: {
                 meta: null,

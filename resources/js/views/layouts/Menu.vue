@@ -112,6 +112,7 @@ export default defineComponent({
             } else if (type === 'mobile') {
                 return hasPermission && obj.showMobile && totalEnabledSubItems > 0;
             }
+
             return false;
         }
 

@@ -24,9 +24,7 @@ return [
         "labels" => [
             "id" => "ID",
             "id_pound" => "#",
-            "first_name" => "First name",
-            "last_name" => "Last name",
-            "middle_name" => "Middle name",
+            "username" => "Username",
             "name" => "Name",
             "avatar" => "Avatar",
             "email" => "Email",

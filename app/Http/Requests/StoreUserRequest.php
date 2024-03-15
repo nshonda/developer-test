@@ -14,9 +14,7 @@ class StoreUserRequest extends BaseRequest
     public function rules()
     {
         return [
-            'first_name' => 'required|string|max:100',
-            'last_name' => 'required|string|max:100',
-            'middle_name' => 'nullable|string|max:100',
+            'username' => 'required|string|max:255|unique:users',
             'email' => 'required|email|unique:users',
             'roles' => 'required|array|exists:roles,name',
             'avatar' => $this->request->has('avatar') ? 'nullable' : 'image',

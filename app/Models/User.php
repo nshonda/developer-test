@@ -32,7 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
      * ALlowed search fields
      * @var string[]
      */
-    protected $searchFields = ['first_name', 'last_name', 'middle_name', 'email'];
+    protected $searchFields = ['username', 'email'];
 
     /**
      * The attributes that aren't mass assignable.
@@ -123,15 +123,7 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
      */
     public function getFullNameAttribute()
     {
-        $names = [];
-        foreach (['first_name', 'middle_name', 'last_name'] as $key) {
-            $value = $this->getAttribute($key);
-            if ( ! empty($value)) {
-                $names[] = $value;
-            }
-        }
-
-        return implode(' ', $names);
+        return $this->username;
     }
 
     /**

@@ -10,7 +10,7 @@
             <div class="w-5/6 px-6 pt-2">
                 <div class="items-center">
                     <ul class="mt-2">
-                        <li class="mb-1 text-2xl font-bold">{{ authStore.user.full_name }}
+                        <li class="mb-1 text-2xl font-bold">{{ authStore.user.username }}
                             <Badge theme="success" class="inline" v-if="authStore.user.email_verified_at">
                                 {{ trans('users.status.verified') }}
                             </Badge>

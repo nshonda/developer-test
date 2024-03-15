@@ -1,6 +1,7 @@
 import laravel from 'laravel-vite-plugin'
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue';
+import ElementPlus from 'unplugin-element-plus/vite'
 import path from 'path'
 
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
         __INTLIFY_PROD_DEVTOOLS__: false,
     },
     plugins: [
+        ElementPlus({useSource: true}),
         laravel([
             'resources/scss/main.scss',
             'resources/js/main.js',

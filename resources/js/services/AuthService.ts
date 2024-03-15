@@ -1,13 +1,17 @@
 import axios from "axios";
+import { useCookies } from "vue3-cookies";
 import BaseService from "@/services/BaseService";
 import {useGlobalStateStore} from "@/stores/global"
 
 export default class AuthService extends BaseService {
 
     private globalStateStore;
+    cookies: any;
 
     constructor() {
         super();
+        const { cookies } = useCookies();
+        this.cookies = cookies;
         this.url = '/';
         this.setupAPI(axios.defaults.baseURL);
         this.globalStateStore = useGlobalStateStore();
@@ -70,6 +74,7 @@ export default class AuthService extends BaseService {
         this.globalStateStore.loadingElements['login-form'] = true;
         return this.post("/login", payload).finally(() => {
             this.globalStateStore.loadingElements['login-form'] = false;
+            this.api.defaults.headers.common['X-CSRF-TOKEN'] = this.cookies['XSRF-TOKEN'];
         });
     }
 
